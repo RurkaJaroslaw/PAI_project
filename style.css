@@ -1,0 +1,20 @@
+body{
+    background: #eee;
+}
+#frm{
+    border: solid gray 5px;  /* grubosc ramki panelu */
+    width: 20%;  /* szerokosc panelu */
+    border-radius: 30px;  /* Promien zaokraglenia rogow */
+    margin: 100px auto;  /* Odstwp panelu od gory */
+    background: lightcyan;  /* kolor tla */
+    padding: 20px;  /* Odstep ramki dokola */
+}
+
+btn{
+    color: #fff;
+    background: #337ab7;
+    padding: 5px;
+    margin-left: 69%;
+}
+
+/*  */
