@@ -5,7 +5,7 @@
       <paths name="GlobalServerSettings">
         <serverdata>
           <mappings>
-            <mapping deploy="UserRegistrationAwaMelvine" local="$PROJECT_DIR$" web="/UserRegistrationAwaMelvine" />
+            <mapping deploy="PAI_project" local="$PROJECT_DIR$" web="/PAI_project" />
           </mappings>
         </serverdata>
       </paths>

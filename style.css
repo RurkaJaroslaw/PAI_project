@@ -4,21 +4,34 @@
 }
 body {
     background-image: url("login.png");
-    font-size: 120%;
+    font-size: 20px;
     /*background: #F8F8FF;*/
 }
 
 .header {
     width: 30%;
-    margin: 50px auto 0px;
-    color: black;
-    background: #5F9EA0;
+    margin: 0px auto 0px;
+    color: white;
+    background: #483D8B;
     text-align: center;
-    border: 1px solid #B0C4DE;
+    border: 1px solid gray;
+    border-radius: 8px 8px 0px 0px;
     border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
     padding: 20px;
 }
+
+.header2 {
+    width: 50%;
+    margin: 0px auto 0px;
+    color: white;
+    background: #483D8B;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: none;
+    padding: 2px;
+}
+
 form {
     width: 30%;
     margin: 0px auto;
@@ -29,12 +42,13 @@ form {
 }
 
 .content {
-    width: 30%;
+    width: 50%;
+    height: 100%;
     margin: 0px auto;
     background: white;
     border: 1px solid #B0C4DE;
     border-radius: 0px 0px 10px 10px;
-    padding: 20px;
+    padding: 2px;
 }
 
 .input_group {
@@ -81,4 +95,72 @@ form {
     background: #dff0d8;
     border: 1px solid #3c763d;
     margin-bottom: 20px;
+}
+
+
+
+
+.wrapper {
+    width: 100%;
+    margin: 0px auto;
+    border: 1px solid gray;
+}
+
+.wrapper:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.books {
+    width: 30%;
+    background: #dcdcdc;
+    padding-top: 10px;
+    float: left;
+}
+
+.book {
+    width: 69%;
+    float: right;
+    padding-left: -10px;
+}
+
+#book_list {
+
+    max-height: 400px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+li {
+    list-style-type: none;
+    line-height: 1.4em;
+}
+
+li:hover {
+    cursor: pointer;
+    color: #483D8B;
+}
+
+ul {
+    margin-left: -10px;
+}
+
+h3 {
+    color: #483D8B;
+}
+
+#search {
+    margin-left: 10px;
+    width: 60%;
+    padding: 5px;
+    height: 13px;
+}
+
+button {
+    height: 25px;
+    background: #483D8B;
+    color: white;
+    border: none;
+    border-radius: 4px;
 }

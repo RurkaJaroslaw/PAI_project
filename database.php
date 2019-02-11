@@ -32,6 +32,7 @@
             array_push($errors, "Hasła do siebie nie pasują");
         }
 
+
         //jesli powyzsze bledy nie wystapily, dodaj uzytkownika do bazy danych
         if (count($errors) == 0) {
             $password = md5($password_1); //szyfrowanie hasla
