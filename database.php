@@ -14,7 +14,6 @@
         $email = mysqli_real_escape_string($db, $_POST['email']);
         $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
         $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-
         //sprawdzam czy pola sa wypelnione
         if (empty($username)){
             array_push($errors, "Username wymagany");
@@ -36,7 +35,7 @@
         //jesli powyzsze bledy nie wystapily, dodaj uzytkownika do bazy danych
         if (count($errors) == 0) {
             $password = md5($password_1); //szyfrowanie hasla
-            $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+            $sql = "INSERT INTO users (username, email, password, role) VALUES ('$username', '$email', '$password', 'user')";
             mysqli_query($db, $sql);
             //log user in
             $_SESSION['username'] = $username;
@@ -61,14 +60,24 @@
 
         if (count($errors) == 0) {
             $password = md5($password); //szyfrowanie hasla
-            $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+            $query = "SELECT * FROM users WHERE username='$username' AND password='$password' AND role='user'";
             $result = mysqli_query($db, $query);
+
+            $queryAdmin = "SELECT * FROM users WHERE username='$username' AND password='$password' AND role='admin'";
+            $resultAdmin = mysqli_query($db, $queryAdmin);
+
             if (mysqli_num_rows($result) == 1){
                 //log user in
                 $_SESSION['username'] = $username;
                 $_SESSION['success'] = "Zalogowano pomyślnie";
                 header('location: index.php');
-            }else{
+            }
+            else if (mysqli_num_rows($resultAdmin) == 1){
+                $_SESSION['username'] = $username;
+                $_SESSION['success'] = "Zalogowano pomyślnie";
+                header('location: indexAdmin.php');
+            }
+            else{
                 array_push($errors, "Zły login/hasło");
             }
         }

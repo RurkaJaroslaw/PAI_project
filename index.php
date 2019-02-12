@@ -15,7 +15,7 @@
 <body>
 
 <div class="header2">
-    <h1>Lista Książek</h1>
+    <h1>Internetowa Wypożyczalnia Książek</h1>
 </div>
 
     <div class="content">
@@ -89,6 +89,18 @@
             book:"Harry Potter",
             opis:"Dziadostwo",
             streszczenie:"O takim co na miotle latał... "
+        },
+
+        {
+            book:"Programowanie w Javie",
+            opis:"autor: doc. Rogowski Amadeusz",
+            streszczenie:"'Naucz się jedynego słusznego języka programowania w 2 dni i zarabiaj wielkie pieniądze w świecie informatyki, tak jak ja' - twierdzi auor"
+        },
+
+        {
+            book:"Podręcznik dziennikarstwa",
+            opis:"kategoria: dziennikarstwo",
+            streszczenie:"Kuba Wojewódzki o swojej historii"
         }
     ];
 
@@ -141,4 +153,3 @@
     }
 
 </script>
-

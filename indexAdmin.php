@@ -1,0 +1,168 @@
+<?php include('database.php');
+
+//gdy osoba nie jest zalogowana, nie widzi tej strony
+if (empty($_SESSION['username'])){
+    header('location: login.php');
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="header2">
+    <h1>Panel Administratora</h1>
+</div>
+
+<div class="content">
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="error success">
+            <h3>
+                <?php
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+                ?>
+            </h3>
+        </div>
+    <?php endif ?>
+
+    <?php if (isset($_SESSION["username"])): ?>
+        <p>Welcome <strong> <?php echo $_SESSION['username']; ?> </strong> </p>
+    <?php endif ?>
+    <div class="wrapper">
+        <div class="books">
+            <input type="text" id="search" placeholder="Szukaj książki">
+            <button onclick="search()">Go</button>
+
+            <ul id="book_list"></ul>
+
+        </div>
+
+        <div class="book">
+            <h3 id="book_text"></h3>
+            <p id="opis"></p>
+
+            <hr>
+
+            <h3>Streszczenie:</h3>
+            <li id="streszczenie"></li>
+
+            <hr>
+
+            <h3>Ilość:</h3>
+            <p id="ilosc"></p>
+        </div>
+
+    </div>
+
+    <?php if (isset($_SESSION["username"])): ?>
+        <p> <a href="index.php?logout='1'" style="color: red;"> Wyloguj </a> </p>
+    <?php endif ?>
+</div>
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+    var book_table = [
+        {
+            book:"Potop",
+            opis:"Lektura Henryka Sienkiewicza",
+            streszczenie:"Historia potopu szwedów na naród polski.. ",
+            ilosc: 4
+        },
+
+        {
+            book:"Latarnik",
+            opis:"Nudna lektura szkolna",
+            streszczenie:"Smutna historia człowieka, który..  ",
+            ilosc: 2
+        },
+
+        {
+            book:"Winnetou",
+            opis:"autor: Karol May ",
+            streszczenie:"Młody Indiani Winnetou staje do walki z... ",
+            ilosc: 3
+        },
+
+        {
+            book:"Harry Potter",
+            opis:"Dziadostwo",
+            streszczenie:"O takim co na miotle latał... ",
+            ilosc: 1
+        },
+
+        {
+            book:"Programowanie w Javie",
+            opis:"autor: doc. Rogowski Amadeusz",
+            streszczenie:"'Naucz się jedynego słusznego języka programowania w 2 dni i zarabiaj wielkie pieniądze w świecie informatyki, tak jak ja' - twierdzi auor",
+            ilosc: 3
+        },
+
+        {
+            book:"Podręcznik dziennikarstwa",
+            opis:"kategoria: dziennikarstwo",
+            streszczenie:"Kuba Wojewódzki o swojej historii",
+            ilosc: 2
+        }
+    ];
+
+
+
+    init = function(){
+        for (var i = 0; i < book_table.length; i++)
+        {
+            document.getElementById('book_list').innerHTML += "<li onclick='show(" + i + ")'>" + book_table[i].book + "</li>";
+        }
+    }
+
+    init();
+
+    show = function(i) {
+        document.getElementById('book_text').innerHTML = book_table[i].book;
+        document.getElementById('opis').innerHTML = book_table[i].opis;
+        document.getElementById('streszczenie').innerHTML = book_table[i].streszczenie
+        document.getElementById('ilosc').innerHTML = book_table[i].ilosc
+
+
+        var list = "";
+
+    }
+
+    show(0);
+
+    //search
+    search = function () {
+        query = document.getElementById('search').value;
+
+        if (query == "") {
+            return;
+        }
+
+        found = -1;
+
+        for (var i = 0; i < book_table.length; i++) {
+            if (query == book_table[i].book) {
+                found = i;
+                break;
+            } else {
+                document.getElementById('book_text').innerHTML = "Nie ma takiej książki";
+                document.getElementById('opis').innerHTML = "Nie ma ksiazki zgodnej z opisem";
+                document.getElementById('streszczenie').innerHTML = "Brak streszczenia";
+                document.getElementById('ilosc').innerHTML = "Brak ksiazki na stanie";
+            }
+        }
+
+        if (found >= 0) {
+            show(found);
+        }
+    }
+
+</script>
