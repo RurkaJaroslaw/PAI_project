@@ -94,7 +94,7 @@
         {
             book:"Programowanie w Javie",
             opis:"autor: doc. Rogowski Amadeusz",
-            streszczenie:"'Naucz się jedynego słusznego języka programowania w 2 dni i zarabiaj wielkie pieniądze w świecie informatyki, tak jak ja' - twierdzi auor"
+            streszczenie:"'Naucz się jedynego słusznego języka programowania w 2 dni i zarabiaj wielkie pieniądze w świecie informatyki, tak jak ja' - twierdzi autor"
         },
 
         {
